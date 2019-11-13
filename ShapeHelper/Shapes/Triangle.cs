@@ -13,7 +13,7 @@ namespace ShapeHelper.Shapes
         public Triangle(double a, double b, double c)
         {
             if (!(a < b + c && b < a + c && c < a + b))
-                throw new WrongShapeParameterException(this.GetType(), "sides", "в невырожденном треугольнике сумма длин двух его сторон больше длины третьей стороны");
+                throw new WrongShapeParameterException(this.GetType(), "sides", "в невырожденном треугольнике сумма длин двух его сторон должна быть больше длины третьей стороны");
 
             var sides = new[] { a, b, c, };
 
