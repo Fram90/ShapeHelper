@@ -16,10 +16,6 @@ namespace ShapeHelper.Shapes
                 throw new WrongShapeParameterException(this.GetType(), "sides", "в невырожденном треугольнике сумма длин двух его сторон должна быть больше длины третьей стороны");
 
             var sides = new[] { a, b, c, };
-
-            if (sides.Any(x => x <= 0 || double.IsInfinity(x)))
-                throw new WrongShapeParameterException(this.GetType(), "side", "длины сторон должны быть заданы положительными числами");
-
             var ordered = sides.OrderBy(x => x).ToArray(); //для простоты. Если необходимо, можно и без Linq
 
             _a = ordered[0];

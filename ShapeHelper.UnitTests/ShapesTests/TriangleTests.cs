@@ -15,6 +15,7 @@ namespace ShapeHelper.UnitTests.ShapesTests
             Assert.DoesNotThrow(() => new Triangle(3, 4, 5));
         }
 
+        [TestCase(-1, -1, -1)]
         [TestCase(-1, 1, 1)]
         [TestCase(1, -1, 1)]
         [TestCase(1, 1, -1)]
