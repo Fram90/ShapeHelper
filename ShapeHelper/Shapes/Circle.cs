@@ -9,7 +9,7 @@ namespace ShapeHelper.Shapes
 
         public Circle(double radius)
         {
-            if (radius <= 0) //не допускаются вырожденные фигуры с радиусом, равным 0
+            if (radius <= 0 || double.IsInfinity(radius)) //не допускаются вырожденные фигуры с радиусом, равным 0
                 throw new WrongShapeParameterException(this.GetType(), nameof(radius), "радиус должен быть задан положительным числом");
 
             _radius = radius;

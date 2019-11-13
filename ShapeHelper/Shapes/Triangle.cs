@@ -12,9 +12,12 @@ namespace ShapeHelper.Shapes
 
         public Triangle(double a, double b, double c)
         {
+            if (!(a < b + c && b < a + c && c < a + b))
+                throw new WrongShapeParameterException(this.GetType(), "sides", "в невырожденном треугольнике сумма длин двух его сторон больше длины третьей стороны");
+
             var sides = new[] { a, b, c, };
 
-            if (sides.Any(x => x <= 0))
+            if (sides.Any(x => x <= 0 || double.IsInfinity(x)))
                 throw new WrongShapeParameterException(this.GetType(), "side", "длины сторон должны быть заданы положительными числами");
 
             var ordered = sides.OrderBy(x => x).ToArray(); //для простоты. Если необходимо, можно и без Linq
